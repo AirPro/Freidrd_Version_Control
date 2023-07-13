@@ -13,14 +13,20 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+    // public IActionResult Index()
+    // {
+    //     return View();
+    // }
 
     public IActionResult Privacy()
     {
         return View();
+    }
+
+    [HttpGet]
+    public JsonResult Index()
+    {
+        return Json(new Person{Id = 1, FirstName = "Bob", LastName="Freid"});
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
